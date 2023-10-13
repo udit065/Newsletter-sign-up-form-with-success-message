@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sign-up form start -->
+
+  <div id="parent-container">
+    <div class="child-container">
+      <h1>Stay updated!</h1>
+
+      <p class="text-1">Join 60,000+ product managers receiving monthly updates on:</p>
+
+      <div class="checkbox">
+        <div class="checkbox-child">
+          <img src="./assets/images/icon-list.svg" class="checkbox-icon">
+          <p>Product discovery and building what matters</p>
+        </div>
+        <div class="checkbox-child">
+          <img src="./assets/images/icon-list.svg" class="checkbox-icon">
+          <p>Measuring to ensure updates are a success</p>
+        </div>
+        <div class="checkbox-child">
+          <img src="./assets/images/icon-list.svg" class="checkbox-icon">
+          <p>And much more!</p>
+        </div>
+      </div>
+
+      <div class="email-div">
+        <p>Email address</p>
+        <input type="text" placeholder="email@company.com" id="emailInput">
+        <button type="submit" class="sub-btn" onclick="subscribe()">Subscribe to monthly newsletter</button>
+        <p id="validationMessage" style="color: red;"></p>
+      </div>
+
+    </div>
+    <div class=" child-container">
+      <img src="./assets/images/illustration-sign-up-desktop.svg" class="desktop-img" alt="Desktop Image">
+    </div>
+    <div class="img-container">
+      <img src="./assets/images/illustration-sign-up-mobile.svg" class="mobile-img" alt="Mobile Image">
+    </div>
+  </div>
+  <!-- Sign-up form end -->
+
+
+
+  <!-- Success message start -->
+
+  <!-- Thanks for subscribing!
+
+  A confirmation email has been sent to ash@loremcompany.com.
+  Please open it and click the button inside to confirm your subscription.
+
+  Dismiss message -->
+
+  <!-- Success message end -->
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <!-- <script>
+    function subscribe() {
+      // Get the email input value
+      var email = document.getElementById('emailInput').value;
+
+      // Set the email in local storage to use on the next page
+      localStorage.setItem('subscribedEmail', email);
+
+      // Get the paragraph element where you'll display validation messages
+      var validationMessage = document.getElementById("validationMessage");
+
+      // Regular expression to check if the email address is valid
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+      // Check if the email field is empty
+      if (email.trim() === "") {
+        validationMessage.innerHTML = "Please enter an email address.";
+      }
+      // Check if the email address is not correctly formatted
+      else if (!email.match(emailPattern)) {
+        validationMessage.innerHTML = "Please enter a valid email address.";
+      }
+      // If everything is valid, you can proceed to your "thankyou.html" page
+      else {
+        window.location.href = "thankyou.html";
+      }
+    }
+  </script> -->
+  <script>
+    function subscribe() {
+      // Get the input element and the value entered by the user
+      var emailInput = document.getElementById("emailInput");
+      var email = emailInput.value;
+
+      localStorage.setItem('subscribedEmail', email);
+
+
+      // Get the paragraph element where you'll display validation messages
+      var validationMessage = document.getElementById("validationMessage");
+
+      // Regular expression to check if the email address is valid
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+      // Initialize a variable to track if both conditions are met
+      var isValid = true;
+
+      // Check if the email field is empty
+      if (email.trim() === "") {
+        validationMessage.innerHTML = "Please enter an email address.";
+        isValid = false;
+      }
+      // Check if the email address is not correctly formatted
+      else if (!email.match(emailPattern)) {
+        validationMessage.innerHTML = "Please enter a valid email address.";
+        isValid = false;
+      }
+
+      // If both conditions are met, proceed to the "thankyou.html" page
+      if (isValid) {
+        window.location.href = "thankyou.html";
+      }
+    }
+  </script>
+</body>
+
+</html>
